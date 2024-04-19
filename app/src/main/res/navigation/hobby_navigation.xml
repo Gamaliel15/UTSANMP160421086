@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hobby_navigation"
+    app:startDestination="@id/itemHome">
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.gamaliel.uts_anmp.view.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.gamaliel.uts_anmp.view.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="com.gamaliel.uts_anmp.view.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actiondetailfragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.gamaliel.uts_anmp.view.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.gamaliel.uts_anmp.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.gamaliel.uts_anmp.view.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/actionhomefragment"
+            app:destination="@id/itemHome" />
+        <argument
+            android:name="newsID"
+            app:argType="string" />
+    </fragment>
+</navigation>
