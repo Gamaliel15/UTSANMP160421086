@@ -42,7 +42,10 @@ class RegisViewModel(application: Application) : AndroidViewModel(application) {
         loadingLD.value = true
 
         queue?.let { queue ->
-            val url = "http://10.0.2.2/anmp/regis.php"
+
+            //val url = "http://10.0.2.2/anmp/regis.php"
+
+            val url = "http://192.168.100.25/anmp/regis.php"
 
             val stringRequest = object : StringRequest(Request.Method.POST, url,
                 { response ->
