@@ -16,7 +16,9 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     fun fetchCurrentUser(userId: String) {
         val queue = Volley.newRequestQueue(getApplication())
 
-        val url = "http://10.0.2.2/anmp/login.php"
+        //val url = "http://10.0.2.2/anmp/login.php"
+
+        val url = "http://192.168.100.25/anmp/login.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -56,7 +58,9 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     fun updateProfile(userId: String, firstName: String, lastName: String, newPassword: String) {
         val queue = Volley.newRequestQueue(getApplication())
 
-        val url = "http://10.0.2.2/anmp/update_profile.php"
+        //val url = "http://10.0.2.2/anmp/update_profile.php"
+
+        val url = "http://192.168.100.25/anmp/update_profile.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,

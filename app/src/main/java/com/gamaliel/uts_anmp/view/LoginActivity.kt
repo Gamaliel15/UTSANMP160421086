@@ -17,16 +17,16 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //inisialisasi viewmodel
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.btnLogin.setOnClickListener {
             val username = binding.txtUsername.text.toString()
             val password = binding.txtPass.text.toString()
 
-            // Validate input before attempting login
+
             if (validateInputs(username, password)) {
-                // Proceed with login operation
-                viewModel.authenticateUser(username, password)
+                viewModel.performLogin(username, password)
             }
         }
 
@@ -34,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
             navigateToRegis()
         }
 
-        // Observe login success event
         viewModel.loginSuccessLD.observe(this) { success ->
             if (success) {
                 // Handle successful login
@@ -43,10 +42,8 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // Observe login error event
         viewModel.loginErrorLD.observe(this) { error ->
             if (error) {
-                // Show error message to the user using Toast
                 Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
             }
         }
@@ -75,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // Optional: Close the LoginActivity
+        finish()
     }
 
     private fun navigateToRegis() {

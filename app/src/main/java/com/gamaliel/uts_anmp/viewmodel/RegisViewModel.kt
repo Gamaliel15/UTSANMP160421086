@@ -21,16 +21,17 @@ class RegisViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun checkUsernameExists(username: String) {
-        val url = "http://10.0.2.2/anmp/check_username.php?username=$username"
+
+        //val url = "http://10.0.2.2/anmp/check_username.php?username=$username"
+
+        val url = "http://192.168.100.25/anmp/check_username.php?username=$username"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                // Handle response from server
-                usernameExistsLD.value = response.toBoolean() // Parse response to Boolean
+                usernameExistsLD.value = response.toBoolean()
             },
             { error ->
-                // Handle error response
-                usernameExistsLD.value = false // Assume username does not exist if error occurs
+                usernameExistsLD.value = false
             })
 
         stringRequest.tag = TAG

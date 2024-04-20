@@ -25,7 +25,9 @@ class DetailViewModel(application: Application) : AndroidViewModel(application) 
         loadingLD.value = true
 
         queue?.let { queue ->
-            val url = "http://10.0.2.2/anmp/news_$newsId.json"
+            //val url = "http://10.0.2.2/anmp/news_$newsId.json"
+
+            val url = "http://192.168.100.25/anmp/news_$newsId.json"
 
             val stringRequest = StringRequest(
                 Request.Method.GET, url,

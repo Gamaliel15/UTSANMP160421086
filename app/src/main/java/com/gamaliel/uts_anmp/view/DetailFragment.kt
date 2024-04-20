@@ -60,13 +60,13 @@ class DetailFragment : Fragment() {
         })
 
         binding.btnNext.setOnClickListener {
-            showNextSection()
-            updateSectionNumber()
+            nextParagraph()
+            paging()
         }
 
         binding.btnPrevious.setOnClickListener {
-            showPreviousSection()
-            updateSectionNumber()
+            backParagraph()
+            paging()
         }
     }
 
@@ -80,17 +80,17 @@ class DetailFragment : Fragment() {
             .load(news.url_photo)
             .into(binding.imageViewGame) // ImageView to load the image into
 
-        updateSectionNumber()
+        paging()
     }
 
-    private fun updateSectionNumber() {
+    private fun paging() {
         val news = viewModel.newsLD.value
-        val totalSections = news?.paragraf?.size ?: 0
-        val currentSectionNumber = index + 1
-        binding.txtPage.text = "$currentSectionNumber of $totalSections"
+        val totalPage = news?.paragraf?.size ?: 0
+        val page = index + 1
+        binding.txtPage.text = "$page of $totalPage"
     }
 
-    private fun showNextSection() {
+    private fun nextParagraph() {
         val news = viewModel.newsLD.value
         if (news != null && index < news.paragraf.size - 1) {
             index++
@@ -98,7 +98,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun showPreviousSection() {
+    private fun backParagraph() {
         val news = viewModel.newsLD.value
         if (news != null && index > 0) {
             index--

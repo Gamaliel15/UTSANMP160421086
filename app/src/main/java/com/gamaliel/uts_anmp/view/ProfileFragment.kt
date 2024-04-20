@@ -33,9 +33,11 @@ class ProfileFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        // Fetch current user profile
+        //utk dapat id user
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", AppCompatActivity.MODE_PRIVATE)
         val userId = sharedPreferences.getString("idUsers", "")
+
+        //load data user
         userId?.let { userId ->
             viewModel.fetchCurrentUser(userId)
         }
@@ -83,14 +85,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout() {
-        // Clear SharedPreferences on logout
         val sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", AppCompatActivity.MODE_PRIVATE)
         with(sharedPreferences.edit()) {
             clear()
             apply()
         }
 
-        // Navigate to LoginFragment or LoginActivity
         startActivity(Intent(requireContext(), LoginActivity::class.java))
         requireActivity().finish()
     }
