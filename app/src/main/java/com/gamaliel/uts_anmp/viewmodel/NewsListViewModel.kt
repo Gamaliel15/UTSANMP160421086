@@ -31,9 +31,9 @@ class NewsListViewModel(application: Application): AndroidViewModel(application)
 
         queue?.let { queue ->
 
-            //val url = "http://10.0.2.2/anmp/news.json"
+            val url = "http://10.0.2.2/anmp/news.json"
 
-            val url = "http://192.168.100.25/anmp/news.json"
+            //val url = "http://192.168.100.25/anmp/news.json"
 
             val stringRequest = StringRequest(
                 Request.Method.GET, url,

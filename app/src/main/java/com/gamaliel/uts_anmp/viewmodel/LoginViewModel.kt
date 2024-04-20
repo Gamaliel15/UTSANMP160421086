@@ -28,9 +28,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     fun performLogin(username: String, password: String) {
         val queue = Volley.newRequestQueue(getApplication())
 
-        //val url = "http://10.0.2.2/anmp/login.php"
+        val url = "http://10.0.2.2/anmp/login.php"
 
-        val url = "http://192.168.100.25/anmp/login.php"
+        //val url = "http://192.168.100.25/anmp/login.php"
 
         // StringRequest untuk melakukan request HTTP POST
         val stringRequest = object : StringRequest(
