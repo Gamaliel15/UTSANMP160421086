@@ -27,7 +27,7 @@
         <ImageView
             android:id="@+id/imageViewGame"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,39 +82,18 @@
             app:layout_constraintStart_toStartOf="@+id/txtIsi"
             app:layout_constraintTop_toBottomOf="@+id/txtIsi" />
 
-        <!-- Horizontal divider below main description -->
-        <View
-            android:id="@+id/horizontalDividerMainDescription"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@+id/txtParagraf"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <!-- TextView for section number -->
-        <TextView
-            android:id="@+id/txtPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1 of 3"
-            android:textAppearance="?android:textAppearanceSmall"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalDividerMainDescription"
-            app:layout_constraintStart_toStartOf="@+id/txtParagraf"
-            app:layout_constraintEnd_toEndOf="@+id/txtParagraf"
-            android:layout_marginTop="16dp"/>
 
         <LinearLayout
             android:id="@+id/buttonLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="right"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="@+id/txtParagraf"
             app:layout_constraintStart_toStartOf="@+id/txtParagraf"
-            app:layout_constraintTop_toBottomOf="@+id/txtPage">
+            app:layout_constraintTop_toBottomOf="@+id/txtParagraf">
 
             <Button
                 android:id="@+id/btnPrevious"

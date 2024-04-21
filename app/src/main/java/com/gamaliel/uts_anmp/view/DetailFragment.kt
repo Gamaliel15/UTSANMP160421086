@@ -61,12 +61,10 @@ class DetailFragment : Fragment() {
 
         binding.btnNext.setOnClickListener {
             nextParagraph()
-            paging()
         }
 
         binding.btnPrevious.setOnClickListener {
             backParagraph()
-            paging()
         }
     }
 
@@ -80,14 +78,6 @@ class DetailFragment : Fragment() {
             .load(news.url_photo)
             .into(binding.imageViewGame) // ImageView to load the image into
 
-        paging()
-    }
-
-    private fun paging() {
-        val news = viewModel.newsLD.value
-        val totalPage = news?.paragraf?.size ?: 0
-        val page = index + 1
-        binding.txtPage.text = "$page of $totalPage"
     }
 
     private fun nextParagraph() {
